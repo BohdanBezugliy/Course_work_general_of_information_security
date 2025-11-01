@@ -1,0 +1,1 @@
+user 123 A(E,R,W,A):B(E,R,W,A):C(E,R,W,A):D(E,R,W,A):E(E,R,W,A)
