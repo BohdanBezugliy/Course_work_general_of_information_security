@@ -1,1 +1,2 @@
-user 123 A(E,R,W,A):B(E,R,W,A):C(E,R,W,A):D(E,R,W,A):E(E,R,W,A)
+admin admin A1,B1,C1,D1,E1
+user 123 A2,B2,C2,D2,E2

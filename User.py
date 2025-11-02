@@ -9,6 +9,7 @@ class User:
                 if line.split(" ")[0] == self.__name:
                     return line.split(" ")[2]
             return None
+
     def get_name(self):
         return  self.__name
 

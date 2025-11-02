@@ -1,6 +1,4 @@
 import re
-from os import access
-
 
 class UserManager:
 
@@ -9,6 +7,7 @@ class UserManager:
         with open("nameuser.txt", "r") as f:
             for line in f.readlines():
                 self.__names.append(line.split(" ")[0])
+
         self.__N = 15
         self.__n = self.__N - len(self.__names)
 
@@ -22,7 +21,7 @@ class UserManager:
         with open("nameuser.txt", "a") as f:
             reg_pattern_name = re.compile(r"^.{3,50}$")
             while True:
-                username = input("Введіть імʼя нового користувача: ")
+                username = input("Введіть імʼя нового користувача: ").replace(" ", "")
                 if re.search(reg_pattern_name, username):
                     if username in self.__names:
                         print(
@@ -41,7 +40,7 @@ class UserManager:
             reg_pattern_passw = re.compile(r"^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).{8,32}$")
 
             while True:
-                passw = input("Введіть пароль для нового користувача:")
+                passw = input("Введіть пароль для нового користувача:").replace(" ", "")
                 if re.search(reg_pattern_passw, passw):
                     break
                 else:
@@ -68,12 +67,12 @@ class UserManager:
             from User import User
             return User(username)
 
-    def remove_user(self,User):
+    def remove_user(self,user):
+        new_file = []
         with open("nameuser.txt", "r") as f:
             file_content = f.readlines()
-        new_file =[]
-        for line in file_content:
-            if line.split(" ")[0] != User.getName():
-                new_file.append(line)
+            for line in file_content:
+                if line.split(" ")[0] != user.get_name():
+                    new_file.append(line)
         with open("nameuser.txt", "w") as f:
             f.writelines(new_file)
