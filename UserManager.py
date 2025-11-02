@@ -1,4 +1,6 @@
 import re
+from datetime import datetime
+
 
 class UserManager:
 
@@ -41,6 +43,7 @@ class UserManager:
 
             while True:
                 passw = input("Введіть пароль для нового користувача:").replace(" ", "")
+                passw_date_created = datetime.now()
                 if re.search(reg_pattern_passw, passw):
                     break
                 else:
@@ -63,7 +66,7 @@ class UserManager:
                         break
                     else:
                         print("Введіть рівень доступу в правильному форматі!")
-            f.write(f"\n{username} {passw} {access}")
+            f.write(f"\n{username} {passw} {access} {passw_date_created.strftime('%d.%m.%y,%H:%M:%S')}")
             from User import User
             return User(username)
 
