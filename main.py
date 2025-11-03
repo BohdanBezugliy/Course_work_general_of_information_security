@@ -23,7 +23,7 @@ def manage_users():
     usManager = UserManager()
     print(f"--- Поточні користувачі(max 15, наразі {len(usManager.get_users())}) ---")
     print(usManager.get_users())
-    print("------------------------------")
+    print("------------------------------------------")
 
     user_actions = {"ADD", "DEL", "BACK"}
     sub_choice = input("Оберіть дію (ADD - додати, DEL - видалити, BACK - назад): ").upper()
@@ -62,7 +62,7 @@ def manage_directories(user, log):
     print(f"Обрано диск {disk} [Рівень {privilege}]")
     print(f"---Список файлів({len(dir_manager.get_files())} штук) ---")
     print(dir_manager.get_files())
-    print("--------------------")
+    print("-----------------------------")
 
     if privilege == 1:
         file_choice = input("Оберіть дію (READ, WRITE, DELETE, EXECUTE, BACK): ").upper()
@@ -122,15 +122,15 @@ def manage_directories(user, log):
 
 def handle_user_session(user):
     log = StepLog()
-    print(f"\nВітаємо, {user.get_name()}!")
+    print(f"Вітаємо, {user.get_name()}!")
 
     while True:
         if isinstance(user, UserAdmin):
             actions = {"USERS", "DIR", "LOGOUT"}
-            choice_action = input("\n[Admin] Чим бажаєте керувати (USERS, DIR, LOGOUT): ").upper()
+            choice_action = input("[Admin] Чим бажаєте керувати (USERS, DIR, LOGOUT): ").upper()
         else:
             actions = {"DIR", "LOGOUT"}
-            choice_action = input("\n[User] Оберіть дію (DIR - директорії, LOGOUT - вихід): ").upper()
+            choice_action = input("[User] Оберіть дію (DIR - директорії, LOGOUT - вихід): ").upper()
 
         if choice_action not in actions:
             print("Виберіть існуючу дію!")

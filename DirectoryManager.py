@@ -34,7 +34,7 @@ class DirectoryManager:
                     return False, None
         else:
             print("Такого файла не існує!")
-            return False, None
+            return True, None
 
     def remove_file(self,filename):
         if filename in self.__file_names:
